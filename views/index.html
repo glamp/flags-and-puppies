@@ -3,3 +3,17 @@
   <h1><a href="/flags">Flags</a></h1>
   <h1><a href="/puppies">Puppies</a></h1>
 </div>
+
+<script type="text/javascript">
+
+
+  var imagesToLoad = {{{ imagesToLoad }}}
+
+  imageObj = new Image();
+
+  imagesToLoad.forEach(function(img) {
+    imageObj.src = img.src;
+  });
+
+    
+</script>

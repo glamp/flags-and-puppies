@@ -52,7 +52,15 @@ app.configure('development', function(){
 * Route for Index
 */
 app.get('/', function(req, res) {
-    res.render('index');
+    fs.readdir(path.join(__dirname, "public/img/flags"), function(err, flags) {
+        flags = flags.map(function(flag) {
+            return { src: "/img/flags/" + flag, name: flag.slice(0, 2) };
+        });
+        if (req.query.preload=="f") {
+            flags = [];
+        }
+        res.render('index', { imagesToLoad: JSON.stringify(flags) });
+    });
 });
 
 app.get('/flags', function(req, res) {
