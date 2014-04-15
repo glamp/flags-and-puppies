@@ -63,6 +63,10 @@ app.get('/', function(req, res) {
     });
 });
 
+app.get('/2', function(req, res) {
+    res.render('index', { imagesToLoad: '[]' });
+});
+
 app.get('/flags', function(req, res) {
     fs.readdir(path.join(__dirname, "public/img/flags"), function(err, flags) {
         flags = flags.map(function(flag) {
